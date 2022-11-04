@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, HttpCode } from '@nestjs/common';
 
 import { OperationType, DATA_TYPE } from './data';
 @Controller()
@@ -14,6 +14,7 @@ export class AppController {
   }
 
   @Post()
+  @HttpCode(200)
   arthemeticOperation(@Body() input: OperationType): {
     slackUsername: string;
     result: number;
